@@ -12,6 +12,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.progressbar,
 		C3.Behaviors.Pin,
 		C3.Behaviors.Tween,
+		C3.Plugins.TextBox,
+		C3.Plugins.Button,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Acts.SetAngle,
@@ -52,7 +54,12 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SetDefaultColor,
 		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.progressbar.Exps.Progress
+		C3.Plugins.progressbar.Exps.Progress,
+		C3.Plugins.Button.Cnds.OnClicked,
+		C3.Plugins.TextBox.Acts.SetInstanceVar,
+		C3.Plugins.TextBox.Exps.Text,
+		C3.Plugins.System.Cnds.CompareVar,
+		C3.Plugins.System.Acts.GoToLayout
 	];
 };
 self.C3_JsPropNameTable = [
@@ -99,7 +106,12 @@ self.C3_JsPropNameTable = [
 	{Wind_WindThresholdMultiplierBad: 0},
 	{Wind_CurrentBoostBarMultiplier: 0},
 	{GUI_SailDirection: 0},
-	{GUI_Console: 0}
+	{GUI_Console: 0},
+	{mainM_Text: 0},
+	{PlayerInputText: 0},
+	{mainM_TextInput: 0},
+	{mainM_Button: 0},
+	{Password: 0}
 ];
 
 self.InstanceType = {
@@ -112,5 +124,8 @@ self.InstanceType = {
 	GUI_AnchorIcon: class extends self.ISpriteInstance {},
 	GUI_WindDirection: class extends self.ISpriteInstance {},
 	GUI_SailDirection: class extends self.ISpriteInstance {},
-	GUI_Console: class extends self.ITextInstance {}
+	GUI_Console: class extends self.ITextInstance {},
+	mainM_Text: class extends self.ITextInstance {},
+	mainM_TextInput: class extends self.ITextInputInstance {},
+	mainM_Button: class extends self.IButtonInstance {}
 }
