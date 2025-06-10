@@ -2,7 +2,7 @@
 
 const scriptsInEvents = {
 
-	async Events_sea_Event23_Act1(runtime, localVars)
+	async Events_sea_Event26_Act1(runtime, localVars)
 	{
 		// Get object instance (assuming only one of each for now)
 		const sail = runtime.objects.GUI_SailDirection.getFirstInstance();

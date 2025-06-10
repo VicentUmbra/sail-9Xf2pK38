@@ -12,8 +12,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.progressbar,
 		C3.Behaviors.Pin,
 		C3.Behaviors.Tween,
-		C3.Plugins.TextBox,
-		C3.Plugins.Button,
 		C3.Plugins.System.Cnds.OnLayoutStart,
 		C3.Behaviors.Pin.Acts.PinByProperties,
 		C3.Plugins.Sprite.Acts.SetAngle,
@@ -30,16 +28,18 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.progressbar.Acts.SetInstanceVar,
 		C3.Plugins.progressbar.Acts.SetVisible,
 		C3.Plugins.Sprite.Cnds.IsBoolInstanceVarSet,
-		C3.Plugins.progressbar.Cnds.CompareInstanceVar,
-		C3.Plugins.progressbar.Exps.Maximum,
+		C3.Plugins.Sprite.Acts.SetBoolInstanceVar,
+		C3.Plugins.Text.Acts.SetText,
 		C3.Behaviors.Car.Acts.SetAcceleration,
-		C3.Behaviors.Car.Exps.Acceleration,
+		C3.Behaviors.Car.Acts.SetMaxSpeed,
 		C3.Plugins.System.Acts.Wait,
 		C3.Plugins.System.Cnds.EveryTick,
-		C3.Behaviors.Car.Acts.SetMaxSpeed,
-		C3.Plugins.progressbar.Acts.SetCSSStyle,
-		C3.Plugins.progressbar.Acts.SetMaximum,
+		C3.Plugins.progressbar.Acts.SetProgress,
 		C3.Plugins.System.Cnds.Every,
+		C3.Plugins.progressbar.Acts.AddInstanceVar,
+		C3.Plugins.Sprite.Cnds.OnCollision,
+		C3.Plugins.progressbar.Cnds.CompareInstanceVar,
+		C3.Plugins.progressbar.Exps.Maximum,
 		C3.Behaviors.Tween.Acts.StopAllTweens,
 		C3.Plugins.Sprite.Acts.SetInstanceVar,
 		C3.Behaviors.Tween.Exps.Value,
@@ -47,19 +47,9 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Tween.Acts.TweenValue,
 		C3.Plugins.System.Exps.anglelerp,
 		C3.Plugins.System.Exps.dt,
-		C3.JavaScriptInEvents.Events_sea_Event23_Act1,
-		C3.Plugins.Sprite.Cnds.OnCollision,
-		C3.Plugins.progressbar.Acts.SetProgress,
-		C3.Plugins.progressbar.Acts.AddInstanceVar,
+		C3.JavaScriptInEvents.Events_sea_Event26_Act1,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
-		C3.Plugins.Sprite.Acts.SetDefaultColor,
-		C3.Plugins.Text.Acts.SetText,
-		C3.Plugins.progressbar.Exps.Progress,
-		C3.Plugins.Button.Cnds.OnClicked,
-		C3.Plugins.TextBox.Acts.SetInstanceVar,
-		C3.Plugins.TextBox.Exps.Text,
-		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.System.Acts.GoToLayout
+		C3.Plugins.Sprite.Acts.SetDefaultColor
 	];
 };
 self.C3_JsPropNameTable = [
@@ -67,11 +57,9 @@ self.C3_JsPropNameTable = [
 	{car_maxSpeedValue0: 0},
 	{car_maxSpeedValue1: 0},
 	{car_maxSpeedValue2: 0},
-	{car_maxSpeedValue3: 0},
 	{car_accelerationBoost: 0},
 	{car_ControlReadyForBoost: 0},
 	{car_anchorIsUp: 0},
-	{car_windRideLevelCurrent: 0},
 	{Car: 0},
 	{ScrollTo: 0},
 	{Solid: 0},
@@ -83,11 +71,6 @@ self.C3_JsPropNameTable = [
 	{Anchor: 0},
 	{GUI_BoostText: 0},
 	{ProgressBar_currentValue: 0},
-	{ProgressBar_WindRideLevelCurrent: 0},
-	{ProgressBar_WindRideLevel0MaxCap: 0},
-	{ProgressBar_WindRideLevel1MaxCap: 0},
-	{ProgressBar_WindRideLevel2MaxCap: 0},
-	{ProgressBar_WindRideLevel3MaxCap: 0},
 	{GUI_ProgressBar: 0},
 	{Pin: 0},
 	{GUI_AnchorIcon: 0},
@@ -106,12 +89,7 @@ self.C3_JsPropNameTable = [
 	{Wind_WindThresholdMultiplierBad: 0},
 	{Wind_CurrentBoostBarMultiplier: 0},
 	{GUI_SailDirection: 0},
-	{GUI_Console: 0},
-	{mainM_Text: 0},
-	{PlayerInputText: 0},
-	{mainM_TextInput: 0},
-	{mainM_Button: 0},
-	{Password: 0}
+	{GUI_Console: 0}
 ];
 
 self.InstanceType = {
@@ -124,8 +102,5 @@ self.InstanceType = {
 	GUI_AnchorIcon: class extends self.ISpriteInstance {},
 	GUI_WindDirection: class extends self.ISpriteInstance {},
 	GUI_SailDirection: class extends self.ISpriteInstance {},
-	GUI_Console: class extends self.ITextInstance {},
-	mainM_Text: class extends self.ITextInstance {},
-	mainM_TextInput: class extends self.ITextInputInstance {},
-	mainM_Button: class extends self.IButtonInstance {}
+	GUI_Console: class extends self.ITextInstance {}
 }
