@@ -2,41 +2,34 @@
 
 const scriptsInEvents = {
 
-	async Events_sea_Event26_Act1(runtime, localVars)
+	async Events_sea_Event31_Act1(runtime, localVars)
 	{
-		// Get object instance (assuming only one of each for now)
 		const sail = runtime.objects.GUI_SailDirection.getFirstInstance();
 		const wind = runtime.objects.GUI_WindDirection.getFirstInstance();
-		
 		if (!sail || !wind) return;
 		
-		// Convert radians to degrees
-		function toDegrees(radians) {
-		    return radians * (180 / Math.PI);
-		}
-		
+		const toDegrees = r => r * (180 / Math.PI);
 		const sailAngle = toDegrees(sail.angle);
 		const windAngle = toDegrees(wind.angle);
 		
-		// Access thresholds
-		const perfect = sail.instVars.Wind_WindAngleThresholdPerfect;
-		const good = sail.instVars.Wind_WindAngleThresholdGood;
-		
-		// Angle difference (shortest arc between angles)
+		// Shortest arc
 		function angleDifference(a, b) {
 		    return Math.abs((((a - b + 180) % 360 + 360) % 360) - 180);
 		}
 		
 		const diff = angleDifference(windAngle, sailAngle);
-		console.log("Sail:", sailAngle.toFixed(2), "Wind:", windAngle.toFixed(2), "Diff:", diff.toFixed(2));
 		
-		// Set threshold
-		if (diff <= perfect) {
-		    sail.instVars.Wind_CurrentThreshold = 2;
-		} else if (diff <= good) {
-		    sail.instVars.Wind_CurrentThreshold = 1;
+		// Margins
+		const perfectMargin = 30;
+		const oppositeMargin = 15;
+		
+		// State assignment
+		if (diff <= perfectMargin) {
+		    sail.instVars.boatAngle_state = 2;  // Perfect alignment (wider margin)
+		} else if (Math.abs(diff - 180) <= oppositeMargin) {
+		    sail.instVars.boatAngle_state = 0;  // Facing into wind (tighter margin)
 		} else {
-		    sail.instVars.Wind_CurrentThreshold = 0;
+		    sail.instVars.boatAngle_state = 1;  // All other angles
 		}
 		
 	}
