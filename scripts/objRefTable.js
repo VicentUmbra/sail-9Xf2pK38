@@ -101,6 +101,7 @@ self.C3_JsPropNameTable = [
 	{mainM_ButtonRumble: 0},
 	{mainM_TextRumble: 0},
 	{mainM_TextRumbleStatus: 0},
+	{Text: 0},
 	{RumbleActive: 0},
 	{ActiveGamepadIndex: 0},
 	{Password: 0}
@@ -122,5 +123,6 @@ self.InstanceType = {
 	mainM_Text: class extends self.ITextInstance {},
 	mainM_ButtonRumble: class extends self.IButtonInstance {},
 	mainM_TextRumble: class extends self.ITextInstance {},
-	mainM_TextRumbleStatus: class extends self.ITextInstance {}
+	mainM_TextRumbleStatus: class extends self.ITextInstance {},
+	Text: class extends self.ITextInstance {}
 }
