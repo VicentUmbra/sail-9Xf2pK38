@@ -1324,11 +1324,11 @@ self.C3_ExpressionFuncs = [
 		},
 		() => "Sails Controls",
 		() => "idle",
+		() => "boost",
 		() => 50,
 		() => 5,
 		() => 12,
 		() => 100,
-		() => "boost",
 		() => "operating",
 		() => "WIND",
 		() => "RotateWind",
@@ -1354,6 +1354,10 @@ self.C3_ExpressionFuncs = [
 		p => {
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
+		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => ((((v0.GetValue()) === (1) ? 1 : 0)) ? ("On") : ("Off"));
 		}
 ];
 

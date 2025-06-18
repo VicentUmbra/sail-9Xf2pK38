@@ -39,6 +39,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.gamepad.Cnds.OnButtonUp,
 		C3.Plugins.gamepad.Acts.ResetVibrate,
 		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.gamepad.Acts.VibrateTriggerRumble,
 		C3.Plugins.System.Cnds.Every,
 		C3.Behaviors.Tween.Acts.StopAllTweens,
@@ -48,12 +49,14 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Exps.anglelerp,
 		C3.Plugins.Sprite.Exps.Angle,
 		C3.Plugins.System.Exps.dt,
-		C3.JavaScriptInEvents.Events_sea_Event33_Act1,
+		C3.JavaScriptInEvents.Events_sea_Event36_Act1,
 		C3.Plugins.Button.Cnds.OnClicked,
 		C3.Plugins.TextBox.Acts.SetInstanceVar,
 		C3.Plugins.TextBox.Exps.Text,
 		C3.Plugins.System.Cnds.CompareVar,
-		C3.Plugins.System.Acts.GoToLayout
+		C3.Plugins.System.Acts.GoToLayout,
+		C3.Plugins.System.Acts.ToggleBoolVar,
+		C3.Plugins.Text.Acts.SetText
 	];
 };
 self.C3_JsPropNameTable = [
@@ -95,6 +98,10 @@ self.C3_JsPropNameTable = [
 	{mainM_TextInput: 0},
 	{mainM_Button: 0},
 	{mainM_Text: 0},
+	{mainM_ButtonRumble: 0},
+	{mainM_TextRumble: 0},
+	{mainM_TextRumbleStatus: 0},
+	{RumbleActive: 0},
 	{ActiveGamepadIndex: 0},
 	{Password: 0}
 ];
@@ -112,5 +119,8 @@ self.InstanceType = {
 	GUI_Console: class extends self.ITextInstance {},
 	mainM_TextInput: class extends self.ITextInputInstance {},
 	mainM_Button: class extends self.IButtonInstance {},
-	mainM_Text: class extends self.ITextInstance {}
+	mainM_Text: class extends self.ITextInstance {},
+	mainM_ButtonRumble: class extends self.IButtonInstance {},
+	mainM_TextRumble: class extends self.ITextInstance {},
+	mainM_TextRumbleStatus: class extends self.ITextInstance {}
 }
