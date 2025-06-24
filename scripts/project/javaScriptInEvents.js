@@ -2,7 +2,7 @@
 
 const scriptsInEvents = {
 
-	async Events_sea_Event36_Act1(runtime, localVars)
+	async Events_sea_Event62_Act1(runtime, localVars)
 	{
 		const sail = runtime.objects.GUI_SailDirection.getFirstInstance();
 		const wind = runtime.objects.GUI_WindDirection.getFirstInstance();

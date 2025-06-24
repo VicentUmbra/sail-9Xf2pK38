@@ -1301,35 +1301,58 @@ self.C3_ExpressionFuncs = [
 			return () => f0();
 		},
 		() => -1,
-		() => "Controls",
+		() => "CONTROLS",
 		() => "Controls switch",
+		() => "Previous control mode",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
 		},
-		() => 2,
-		() => 1,
 		() => 0,
+		() => 1,
+		() => 2,
+		() => "Stop rumble when not in sails",
 		() => "Nothing",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpInstVar();
+		},
 		() => "Anchor",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpBehavior("manualDeceleration");
+		},
 		() => "Steering",
 		() => -25,
 		() => 25,
 		() => "Row controls",
 		() => "Rows_Idle",
 		() => "Rows_Operating",
-		p => {
-			const n0 = p._GetNode(0);
-			return () => n0.ExpInstVar();
-		},
 		() => "Sails Controls",
 		() => "idle",
-		() => "boost",
 		() => 50,
 		() => 5,
-		() => 12,
+		() => 7,
 		() => 100,
 		() => "operating",
+		() => "STAMINA BAR",
+		() => "GUI",
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpObject();
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (n0.ExpObject() / 1500);
+		},
+		p => {
+			const n0 = p._GetNode(0);
+			return () => (-(n0.ExpObject() / 125));
+		},
+		() => "LOGIC",
+		() => 0.2,
+		() => 1.25,
+		() => "Stamina depleted",
 		() => "WIND",
 		() => "RotateWind",
 		p => {
@@ -1351,9 +1374,24 @@ self.C3_ExpressionFuncs = [
 			return () => f0(n1.ExpObject(), n2.ExpInstVar(), (f3() * 10));
 		},
 		() => "CompareWind&Sail",
+		() => "INERTIA MANUAL STUFF",
+		() => "Control switch - rows",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpObject();
+			return () => n0.ExpBehavior();
+		},
+		() => "MaxSpeedBlend",
+		() => 85,
+		p => {
+			const n0 = p._GetNode(0);
+			return () => n0.ExpBehavior("MaxSpeedBlend");
+		},
+		() => "Sails inertia",
+		() => "manualDeceleration",
+		p => {
+			const n0 = p._GetNode(0);
+			const n1 = p._GetNode(1);
+			return () => ((n0.ExpBehavior() / n1.ExpBehavior()) * 12);
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
